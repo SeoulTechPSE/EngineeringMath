@@ -1,0 +1,306 @@
+---
+title: "Engineering Mathematics I"
+subtitle: '<font color="red">Appendix A. Double Pendulum</font>'
+format:
+  revealjs: 
+    slide-level: 3
+    slide-number: true
+    smaller: false
+    chalkboard: 
+      buttons: true
+    preview-links: auto
+    logo: images/seoultech_logo.png
+    css: styles.css
+    pointer:
+      pointerSize: 20
+      color: '#32cd32'
+revealjs-plugins:
+  - pointer 
+  - confetti
+filters:
+#  - reveal-header
+  - code-fullscreen  
+jupyter: python3    
+---
+
+### Double Pendulum
+
+Consider the rather complicated system of <font color="blue">two coupled 2^nd^-order nonlinear ODEs</font> for a double pendulum
+
+<br/>
+
+::: columns
+
+::: {.column width=40%}
+![](figures/ch04_figure03.png "Double Pendulum"){height="40%" fig-align="center"}
+:::
+
+::: {.column width=60%}
+
+<br/>
+
+```{python}
+# | echo: true
+# | code-line-numbers: "|8|5-6|1-3"
+
+from IPython.display import HTML
+from matplotlib import animation, rc
+import matplotlib.pyplot as plt
+
+import numpy as np
+from scipy import integrate
+
+import sympy
+from sympy import init_printing
+init_printing(use_latex='svg')
+```
+:::
+
+:::
+
+---
+
+<center><font color="blue">Nonlinear governing equations</font></center>
+
+$$\tiny\begin{align*}
+  (m_1+m_2) l_1\color{red}{\ddot{\theta_1}} + m_2l_2\color{red}{\ddot{\theta_2}\cos(\theta_1-\theta_2)} &
+    + m_2l_2\color{red}{\left(\dot{\theta_2}\right)^2\sin(\theta_1-\theta_2)}+g(m_1+m_2)\color{red}{\sin(\theta_1)} = 0\\ 
+   m_2l_2\color{red}{\ddot{\theta_2}} + m_2l_1\color{red}{\ddot{\theta_1}\cos(\theta_1-\theta_2)} &
+   - m_2l_1 \color{red}{\left(\dot{\theta_1}\right)^2 \sin(\theta_1-\theta_2)} +m_2g\color{red}{\sin(\theta_2)} = 0
+\end{align*}$$
+
+<br/>
+
+. . .
+
+```{python}
+#| label: two coupled 2nd-order nonlinear ODEs for a double pendulum
+#| echo: true
+#| code-line-numbers: "|1-2|4-7|9-12"
+
+th1, th2 = sympy.symbols("theta_1, theta_2", cls=sympy.Function)
+t, g, m1, l1, m2, l2 = sympy.symbols("t, g, m_1, l_1, m_2, l_2")
+
+ode1 = sympy.Eq((m1 +m2) *l1 *th1(t).diff(t, t) +
+                m2 *l2 *th2(t).diff(t, t) *sympy.cos(th1(t) -th2(t)) +
+                m2 *l2 *th2(t).diff(t)**2 *sympy.sin(th1(t) -th2(t)) + 
+                g *(m1 +m2) *sympy.sin(th1(t)), 0)
+
+ode2 = sympy.Eq(m2 *l2 *th2(t).diff(t, t) +
+                m2 *l1 *th1(t).diff(t, t) *sympy.cos(th1(t) -th2(t)) -
+                m2 *l1 *th1(t).diff(t)**2 *sympy.sin(th1(t) -th2(t)) +
+                m2 *g *sympy.sin(th2(t)), 0)
+```
+
+---
+
+1.  We first have <font color='red'>to write the system of two 2^nd^-order ODEs as a system of $~$four 1^st^-order ODEs on
+    standard form</font>. To this end, we need to introduce new functions
+    $$y_1(t)=\theta_1(t), ~y_2(t)=\dot{\theta_1}(t), ~y_3(t)=\theta_2(t), ~y_4(t)=\dot{\theta_2}(t)$$
+
+    and rewrite the ODEs in terms of these functions
+
+. . .
+
+```{python}
+# | echo: true
+# | code-line-numbers: "|1-6|8-11"
+
+y1, y2, y3, y4 = sympy.symbols("y_1, y_2, y_3, y_4", cls=sympy.Function)
+
+varchange = {th1(t).diff(t, t): y2(t).diff(t),
+             th1(t): y1(t),
+             th2(t).diff(t, t): y4(t).diff(t),
+             th2(t): y3(t)}
+
+ode1_vc = ode1.subs(varchange)
+ode2_vc = ode2.subs(varchange)
+ode3 = y1(t).diff(t) - y2(t)
+ode4 = y3(t).diff(t) - y4(t)
+```
+
+---
+
+2.  At this point, we have <font color="blue">four coupled 1^st^-order ODEs for the functions $y_1$ to $y_4$</font>. It only remains to solve for the derivatives of these functions to obtain the ODEs <font color="blue">in standard form</font>
+
+<br/>
+
+. . .
+
+```{python}
+# | label: four coupled 1-st order differential equations
+# | echo: true
+# | code-line-numbers: "|1|2|4-5"
+
+y = sympy.Matrix([y1(t), y2(t), y3(t), y4(t)])
+vcsol = sympy.solve((ode1_vc, ode2_vc, ode3, ode4), y.diff(t), dict=True)
+
+f = y.diff(t).subs(vcsol[0])
+f
+```
+
+---
+
+```{python}
+# | label: Jacobian of vector function f
+# | echo: true
+jac = sympy.Matrix([[f_i.diff(y_j) for y_j in y] for f_i in f])
+jac[:, [1, 3]]
+```
+
+. . .
+
+```{python}
+# | echo: true
+jac[:, 0]
+```
+
+. . .
+
+```{python}
+# | echo: true
+jac[:, 2]
+```
+
+--- 
+
+```{python}
+# | label: parameter substitution and lambdification of f and jac
+# | echo: true
+# | code-line-numbers: "|1|3-4"
+params = {m1: 5.0, l1: 2.0, m2: 5.0, l2: 1.0, g: 9.8}
+
+f_np = sympy.lambdify((t, y), f.subs(params), 'numpy')
+jac_np = sympy.lambdify((t, y), jac.subs(params), 'numpy')
+```
+<br/>
+
+. . .
+
+```{python}
+# | label: initial condition
+# | echo: true
+# | code-line-numbers: "|1|3-4"
+y0 = [2.0, 0.0, 0.0, 0.0]
+
+t = np.linspace(0, 20, 1000)
+r = integrate.ode(f_np, jac_np).set_initial_value(y0, t[0])
+```
+
+<br/>
+
+. . .
+
+```{python}
+# | label: integration of ode
+# | echo: true
+# | code-line-numbers: "|1-3|4-7"
+
+dt = t[1] - t[0]
+y = np.zeros((len(t), len(y0)))
+idx = 0
+while r.successful() and r.t < t[-1]:
+    y[idx, :] = r.y
+    r.integrate(r.t + dt)
+    idx += 1
+```    
+
+---
+
+3. When visualizing this solution, it is more intuitive <font color="blue">to animate the positions of the pendulums in the $x–y$ plane</font> rather than their angular deflections
+
+<br/>
+
+```{python}
+# | label: change of variables
+# | echo: true
+# | code-line-numbers: "|1|3-6"
+
+th1_np, th2_np = y[:, 0], y[:, 2]
+
+x1 = params[l1] * np.sin(th1_np)
+y1 = -params[l1] * np.cos(th1_np)
+x2 = x1 + params[l2] * np.sin(th2_np)
+y2 = y1 - params[l2] * np.cos(th2_np)
+```
+
+---
+
+<!-- ```{python}
+# | label: fig-double-pendulum
+
+fig, ax = plt.subplots(figsize=(6, 6))
+
+ax.plot(x1, y1, 'r'),
+ax.plot(x2, y2, 'b', lw=0.5)
+
+ax.set_xlabel('$x$', fontsize=16)
+ax.set_ylabel('$y$', fontsize=16)
+ax.set_xticks([-4, -2, 0, 2, 4])
+ax.set_xticklabels([-4, -2, 0, 2, 4], fontsize=14)
+ax.set_yticks([-4, -2, 0, 2, 4])
+ax.set_yticklabels([-4, -2, 0, 2, 4], fontsize=14)
+ax.set_xlim(-4, 4),
+ax.set_ylim(-4, 4)
+ax.legend(['$m_1$', '$m_2$'])
+ax.tick_params(which='both', direction='in')
+
+fig.tight_layout()
+```
+
+--- -->
+
+```{python}
+# | echo: false
+
+fig, ax = plt.subplots(figsize=(6, 6))
+
+ax.set_xlabel('$x$', fontsize=16)
+ax.set_ylabel('$y$', fontsize=16)
+ax.set_xticks([-4, -2, 0, 2, 4])
+ax.set_yticks([-4, -2, 0, 2, 4])
+ax.set_xticklabels([-4, -2, 0, 2, 4], fontsize=14)
+ax.set_yticklabels([-4, -2, 0, 2, 4], fontsize=14)
+ax.set_xlim(-4, 4)
+ax.set_ylim(-4, 4)
+ax.tick_params(which='both', direction='in')
+
+plt.close()
+```
+
+```{python}
+# | fig-label: fig-animation
+# | fig-cap: '<center><font size="6px"> Double Pendulum Animation </font></center>'
+
+line1, = ax.plot([], [], 'o-', color='r', markersize=20.0, lw=2)
+line2, = ax.plot([], [], 'o-', color='b', markersize=20.0, lw=2)
+
+time_text = ax.text(0.05, 0.9, '', fontsize=18, transform=ax.transAxes)
+
+
+def init():
+    line1.set_data([], [])
+    line2.set_data([], [])
+    time_text.set_text('')
+
+    return line1, line2, time_text
+
+
+def animate(i):
+    t_x1 = [0, x1[i]],
+    t_y1 = [0, y1[i]]
+    t_x2 = [x1[i], x2[i]],
+    t_y2 = [y1[i], y2[i]]
+
+    line1.set_data(t_x1, t_y1)
+    line2.set_data(t_x2, t_y2)
+    time_text.set_text(f'time = {i*dt:.1f}s')
+
+    return line1, line2, time_text
+
+
+ani = animation.FuncAnimation(fig, animate, range(1, len(y)),
+                              interval=dt*1000, blit=True, init_func=init)
+HTML('<center>' + ani.to_html5_video() + '</center>')
+```
+
