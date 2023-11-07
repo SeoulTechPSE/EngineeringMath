@@ -464,7 +464,7 @@
 <section class="slide level3">
 
 <p>A second-order linear equation in two variables is an equation of the form:</p>
-<p><span id="eq-linear_2nd_PDE"><span class="math display">\[Au_{xx} +Bu_{xy} +Cu_{yy} +Du_x +Eu_y +Fu = G  \qquad(1)\]</span></span></p>
+<p><span id="eq-linear_2nd_PDE"><span class="math display">\[Au_{xx} +Bu_{xy} +Cu_{yy} +Du_x +Eu_y +Fu = G  \tag{1}\]</span></span></p>
 <p>where <span class="math inline">\(A\)</span>, <span class="math inline">\(B\)</span>, <span class="math inline">\(C\)</span>, <span class="math inline">\(D\)</span>, <span class="math inline">\(E\)</span>, <span class="math inline">\(F\)</span>, and <span class="math inline">\(G\)</span> can be constants or given functions of <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span></p>
 <div class="fragment">
 <ul>
@@ -527,7 +527,7 @@
 
 <h4 id="the-heat-equation"><font color="blue">The Heat Equation</font></h4>
 <p>The basic equation of <em>one-dimensional</em> heat flow is</p>
-<p><span id="eq-Heat_Eqn"><span class="math display">\[u_t=\alpha u_{xx},\;0&lt;x&lt;L, \;0&lt;t&lt;\infty \qquad(2)\]</span></span></p>
+<p><span id="eq-Heat_Eqn"><span class="math display">\[u_t=\alpha u_{xx},\;0&lt;x&lt;L, \;0&lt;t&lt;\infty \tag{2}\]</span></span></p>
 <p>This equation is derived from the basic conservation of energy</p>
 </section>
 <section class="slide level3">
@@ -537,13 +537,13 @@
 <p><span id="eq-BCs"><span class="math display">\[\begin{align*}
 u(0,t)&amp;= T_1\\
 u(L,t)&amp;= T_2
-\end{align*},\;\;0&lt;t&lt;\infty \qquad(3)\]</span></span></p>
+\end{align*},\;\;0&lt;t&lt;\infty \tag{3}\]</span></span></p>
 </section>
 <section class="slide level3">
 
 <h4 id="initial-conditions"><font color="blue">Initial Conditions</font></h4>
 <p>All physical problems must start from some value of time (generally called <span class="math inline">\(t=0\)</span>), <span class="math inline">\(~\)</span>so we must specify the physical apparatus at this time. Since we started monitoring the rod temperature from time the rod has achieved a constant temperature <span class="math inline">\(T_0\)</span>, <span class="math inline">\(\,\)</span> we have</p>
-<p><span id="eq-IC"><span class="math display">\[u(x,0)=T_0,\;\;0\leq x\leq L \qquad(4)\]</span></span></p>
+<p><span id="eq-IC"><span class="math display">\[u(x,0)=T_0,\;\;0\leq x\leq L \tag{4}\]</span></span></p>
 <div class="fragment">
 <p>By writing <a href="#/eq-Heat_Eqn">Eq.&nbsp;2</a>, <a href="#/eq-BCs">Eq.&nbsp;3</a>, and <a href="#/eq-IC">Eq.&nbsp;4</a> together, we have what is called an <font color="red"><em>initial-boundary-value problem</em></font>. The interesting here, which is not at all obvious, is that there is only one function <span class="math inline">\(u(x,t)\)</span> that satisfies the problem</p>
 </div>
@@ -771,7 +771,7 @@ u(x,t)&amp;=e^{-\alpha\lambda t} \left[ A \sin \sqrt{\lambda}x +B\cos\sqrt{\lamb
 <section class="slide level3">
 
 <p><strong>STEP2</strong> <span class="math inline">\(\text{ }\)</span>The next step is to choose a certain subset of our current crop of solutions</p>
-<p><span id="eq-Heat_01"><span class="math display">\[e^{-\alpha\lambda t} \left[ A \sin \sqrt{\lambda}x +B\cos\sqrt{\lambda} x \right]\; \qquad(5)\]</span></span></p>
+<p><span id="eq-Heat_01"><span class="math display">\[e^{-\alpha\lambda t} \left[ A \sin \sqrt{\lambda}x +B\cos\sqrt{\lambda} x \right]\; \tag{5}\]</span></span></p>
 <p>that satisfy the boundary conditions</p>
 <p><span class="math display">\[\begin{align*}
 u(0,t)&amp;=0 \\
@@ -799,7 +799,7 @@ u(L,t)&amp;=Ae^{-\alpha\lambda t}\sin\sqrt{\lambda}L=0 \;\Rightarrow \sin\sqrt{\
 <section class="slide level3">
 
 <p><strong>STEP 3</strong> <span class="math inline">\(~\)</span>The last step is to add the fundamental solutions</p>
-<p><span id="eq-Heat_02"><span class="math display">\[ u(x,t)=\sum_{n=1}^\infty c_n e^{-\alpha\left(\frac{n\pi}{L}\right)^2 t} \sin\left( \frac{n\pi}{L}x \right) \qquad(6)\]</span></span></p>
+<p><span id="eq-Heat_02"><span class="math display">\[ u(x,t)=\sum_{n=1}^\infty c_n e^{-\alpha\left(\frac{n\pi}{L}\right)^2 t} \sin\left( \frac{n\pi}{L}x \right) \tag{6}\]</span></span></p>
 <p>in such a way (pick the coefficients <span class="math inline">\(c_n\)</span>) that the initial condition</p>
 <p><span class="math display">\[u(x,0)=\phi(x)\]</span></p>
 <p>is satisfied. Substituting the sum into the IC gives</p>
@@ -840,7 +840,7 @@ u(L,t)&amp;=Ae^{-\alpha\lambda t}\sin\sqrt{\lambda}L=0 \;\Rightarrow \sin\sqrt{\
 <div class="fragment">
 <ul>
 <li><p>Consider heat flow in an insulated rod where the two ends are kept at constant temperatures <span class="math inline">\(k_1\)</span> and <span class="math inline">\(k_2\)</span>:</p>
-<p><span id="eq-Heat_nh"><span class="math display">\[\begin{align*} u(0,t)&amp;= k_1\\ u(L,t)&amp;= k_2 \end{align*}, \;\;\;\;\;\;0&lt;t&lt;\infty \qquad(7)\]</span></span></p></li>
+<p><span id="eq-Heat_nh"><span class="math display">\[\begin{align*} u(0,t)&amp;= k_1\\ u(L,t)&amp;= k_2 \end{align*}, \;\;\;\;\;\;0&lt;t&lt;\infty \tag{7}\]</span></span></p></li>
 </ul>
 </div>
 <div class="fragment">
@@ -887,7 +887,7 @@ U(L,t)=0
 <li>What about more realistic-type derivative BCs with time-varying right-hand sides? Consider the typical problem</li>
 </ul>
 <p><span class="math display">\[ \hspace{6.5em} u_t = \alpha u_{xx},\;\;\;\; 0&lt;x&lt;L,\;0&lt;t&lt;\infty\]</span></p>
-<p><span id="eq-Heat_nh2"><span class="math display">\[\begin{align*} u(0,t)&amp;= g_1(t)\\ u_x(L,t)+hu(L,t)&amp;= g_2(t) \end{align*}, \;\;\; 0&lt;t&lt;\infty\; \qquad(8)\]</span></span></p>
+<p><span id="eq-Heat_nh2"><span class="math display">\[\begin{align*} u(0,t)&amp;= g_1(t)\\ u_x(L,t)+hu(L,t)&amp;= g_2(t) \end{align*}, \;\;\; 0&lt;t&lt;\infty\; \tag{8}\]</span></span></p>
 <p><span class="math display">\[ \hspace{0.7em} u(x,0)=\phi(x), \;\;\;\; 0\leq x \leq L\]</span></p>
 </div>
 </section>
@@ -998,7 +998,7 @@ A e^{-\alpha\lambda t}(\sqrt{\lambda} \cos \sqrt{\lambda} +h\sin\sqrt{\lambda})&
 X''+\lambda X &amp;= 0 \\
 X(0)&amp;=0 \\
 X'(1)+hX(1)&amp;=0
-\end{align*} \qquad(9)\]</span></span></p>
+\end{align*} \tag{9}\]</span></span></p>
 <p>The eigenvalue problem <a href="#/eq-Heat_complex">Eq.&nbsp;9</a> is a special case of the general <strong>Sturm-Liouville problem</strong></p></li>
 </ul>
 </section>
@@ -1108,7 +1108,7 @@ c_5 =  0.01967</code></pre>
 </center>
 <p>Consider the following problem:</p>
 <p><span class="math inline">\(\hspace{8.7em} u_t = \alpha u_{xx} \color{blue}{-\beta u},\; 0&lt;x&lt;1,\;0&lt;t&lt;\infty\)</span></p>
-<p><span id="eq-Heat_lateral"><span class="math display">\[\begin{align*} u(0,t)&amp;= 0\\ u(1,t)&amp;= 0 \end{align*}, \hspace{3.2em} 0&lt;t&lt;\infty\; \qquad(10)\]</span></span></p>
+<p><span id="eq-Heat_lateral"><span class="math display">\[\begin{align*} u(0,t)&amp;= 0\\ u(1,t)&amp;= 0 \end{align*}, \hspace{3.2em} 0&lt;t&lt;\infty\; \tag{10}\]</span></span></p>
 <p><span class="math inline">\(\hspace{7.2em}u(x,0)=\phi(x), \hspace{2.35em} 0\leq x \leq 1\)</span></p>
 <p>where the term <span class="math inline">\(-\beta u\)</span> represents heat flow across the lateral boundary</p>
 </section>
@@ -1203,7 +1203,7 @@ u(x,t)&amp;= 2\sum_{n=1}^\infty \frac{1-(-1)^n}{n\pi} e^{-n^2\pi^2 t +\frac{1}{2
 <h3>Lesson 9. Solving Nonhomogeneous PDEs (Eigenfunction Expansion)</h3>
 <p>Consider the nonhomogeneous problem</p>
 <p><span class="math display">\[\hspace{1.5em}u_t = \alpha u_{xx} +f(x,t),\quad 0&lt;x&lt;1,\;0&lt;t&lt;\infty\]</span></p>
-<p><span id="eq-Heat_ee"><span class="math display">\[\begin{align*} u(0,t)&amp;= 0\\ u(1,t)&amp;= 0 \end{align*}, \hspace{4.2em} 0&lt;t&lt;\infty \qquad(11)\]</span></span></p>
+<p><span id="eq-Heat_ee"><span class="math display">\[\begin{align*} u(0,t)&amp;= 0\\ u(1,t)&amp;= 0 \end{align*}, \hspace{4.2em} 0&lt;t&lt;\infty \tag{11}\]</span></span></p>
 <p><span class="math display">\[u(x,0)=\phi(x), \hspace{3.3em} 0\leq x \leq 1 \hspace{3.7em}\]</span></p>
 <p>The purpose of this lesson is to solve this problem by a method that is analogous to the method of variation of parameters in ODEs and is known as the eigenfunction expansion</p>
 </section>
@@ -1404,7 +1404,7 @@ u(x,t)&amp;= 2\sum_{n=1}^\infty \frac{1-(-1)^n}{n\pi} e^{-n^2\pi^2 t +\frac{1}{2
 <p><span id="eq-sp1"><span class="math display">\[\begin{align*}
 u(0,t)&amp;=0 \\
 u(1,t)&amp;=0
-\end{align*},\hspace{4.2em}0&lt;t&lt;\infty\;\;\; \qquad(12)\]</span></span></p>
+\end{align*},\hspace{4.2em}0&lt;t&lt;\infty\;\;\; \tag{12}\]</span></span></p>
 <p><span class="math inline">\(\hspace{6.4em} u(x,0)=\color{red}{\sin 2\pi x}, \;\;\;\;\;\;\;\;\;0 \leq x \leq 1\)</span></p>
 <p><span class="math inline">\(~\)</span></p>
 <p>Here, <span class="math inline">\(~\)</span>we have an <em>nonhomogeneous</em> heat equation, <span class="math inline">\(~\)</span>so separation of variables is not a viable method of attack</p>
@@ -1415,7 +1415,7 @@ u(1,t)&amp;=0
 <p>We could, of course, use the finite sine transform on the variable <span class="math inline">\(x\)</span> or the Laplace transform on <span class="math inline">\(t\)</span>, but still another idea would be to consider two subproblems</p>
 <p><span class="math inline">\(~\)</span></p>
 <div class="fragment">
-<p><span id="eq-sp2"><span class="math display">\[\hspace{6.6em} u_{t}= u_{xx} +\color{red}{\sin \pi x}, \hspace{1.5em} 0 &lt; x &lt; 1, \; 0&lt;t&lt;\infty\;\; \qquad(13)\]</span></span></p>
+<p><span id="eq-sp2"><span class="math display">\[\hspace{6.6em} u_{t}= u_{xx} +\color{red}{\sin \pi x}, \hspace{1.5em} 0 &lt; x &lt; 1, \; 0&lt;t&lt;\infty\;\; \tag{13}\]</span></span></p>
 <p><span class="math display">\[\;\begin{align*}
 u(0,t)&amp;=0 \\
 u(1,t)&amp;=0
@@ -1424,7 +1424,7 @@ u(1,t)&amp;=0
 </div>
 <div class="fragment">
 <p>and</p>
-<p><span id="eq-sp3"><span class="math display">\[\qquad u_{t}= u_{xx}, \hspace{1.5em} 0 &lt; x &lt; 1, \; 0&lt;t&lt;\infty\;\; \qquad(14)\]</span></span></p>
+<p><span id="eq-sp3"><span class="math display">\[\qquad u_{t}= u_{xx}, \hspace{1.5em} 0 &lt; x &lt; 1, \; 0&lt;t&lt;\infty\;\; \tag{14}\]</span></span></p>
 <p><span class="math display">\[\hspace{2.6em}\begin{align*}
 u(0,t)&amp;=0 \\
 u(1,t)&amp;=0
@@ -1965,7 +1965,7 @@ u(x,0) &amp;= u_0, \,\;\;\;\;\;\;\;\;\;\;\;\;\; 0 &lt; x &lt;\infty
 <p>Quite often, <span class="math inline">\(~\)</span>it is important to find the temperature inside a medium due to time-varying boundary conditions. <span class="math inline">\(~\)</span>For example, <span class="math inline">\(~\)</span>consider an insulated rod with temperature specified as <span class="math inline">\(\,f(t)\)</span> on the right end</p>
 <p><span class="math inline">\(~\)</span></p>
 <p><span class="math display">\[\, u_t = u_{xx},\;\;\;\;\;\;\;\; 0&lt;x&lt;1,\;0&lt;t&lt;\infty\]</span></p>
-<p><span id="eq-p1"><span class="math display">\[\begin{align*} u(0,t)&amp;= 0\\ u(1,t)&amp;= \color{red}{f(t)} \end{align*}, \;\;\;\;\;\;\; 0&lt;t&lt;\infty\;\;\;\;\;\;\;\; \qquad(15)\]</span></span></p>
+<p><span id="eq-p1"><span class="math display">\[\begin{align*} u(0,t)&amp;= 0\\ u(1,t)&amp;= \color{red}{f(t)} \end{align*}, \;\;\;\;\;\;\; 0&lt;t&lt;\infty\;\;\;\;\;\;\;\; \tag{15}\]</span></span></p>
 <p><span class="math inline">\(\hspace{6.4em} u(x,0)=0, \;\;\;\;\;\;\;\;\;\;\, 0\leq x \leq 1\)</span></p>
 </section>
 <section class="slide level3">
@@ -1973,7 +1973,7 @@ u(x,0) &amp;= u_0, \,\;\;\;\;\;\;\;\;\;\;\;\;\; 0 &lt; x &lt;\infty
 <p>We may think that the solution to <a href="#/eq-p1">Eq.&nbsp;15</a> can be easily found once we know the solution to the simpler version (constant temperature on the boundaries)</p>
 <p><span class="math inline">\(~\)</span></p>
 <p><span class="math inline">\(\hspace{7.8em}w_t = w_{xx},\;\;\;\;\;\;\;\ 0&lt;x&lt;1,\;0&lt;t&lt;\infty\)</span></p>
-<p><span id="eq-p2"><span class="math display">\[\begin{align*} w(0,t)&amp;= 0\\ w(1,t)&amp;= \color{red}{1} \end{align*}, \;\;\;\;\;\;\;\;\;\; 0&lt;t&lt;\infty\;\;\;\;\;\;\;\; \qquad(16)\]</span></span></p>
+<p><span id="eq-p2"><span class="math display">\[\begin{align*} w(0,t)&amp;= 0\\ w(1,t)&amp;= \color{red}{1} \end{align*}, \;\;\;\;\;\;\;\;\;\; 0&lt;t&lt;\infty\;\;\;\;\;\;\;\; \tag{16}\]</span></span></p>
 <p><span class="math inline">\(\hspace{6.3em} w(x,0)=0, \;\;\;\;\;\;\;\;\;\;\, 0\leq x \leq 1\)</span></p>
 <p><span class="math inline">\(~\)</span></p>
 <p>In fact, if we solve <a href="#/eq-p1">Eq.&nbsp;15</a> and <a href="#/eq-p2">Eq.&nbsp;16</a> side by side by the Laplace transform, <span class="math inline">\(~\)</span><font color="red">we will see a striking result (Duhamel’s principle) that will give us the solution to <a href="#/eq-p1">Eq.&nbsp;15</a> in terms of the solution of <a href="#/eq-p2">Eq.&nbsp;16</a></font></p>
@@ -2059,7 +2059,7 @@ u(x,0) &amp;= u_0, \,\;\;\;\;\;\;\;\;\;\;\;\;\; 0 &lt; x &lt;\infty
 <li><p>A typical problem would be dumping a substance into a clean air (moving with upward velocity <span class="math inline">\(V\)</span>) and observing the concentration of the substance at the upperside. Then the concentration of substance <span class="math inline">\(u(x,t)\)</span> can be found by solving the following mathematical model:</p>
 <p><span class="math inline">\(~\)</span></p>
 <p><span class="math inline">\(\hspace{5.2em}u_t = -Vu_x,\;\;\;\, \color{red}{0&lt;x&lt;\infty},\;0&lt;t&lt;\infty\)</span></p>
-<p><span id="eq-dc"><span class="math display">\[ u(0,t)= P,\;\longleftarrow\; \text{Constant Input of the Substance}  \qquad(17)\]</span></span></p>
+<p><span id="eq-dc"><span class="math display">\[ u(0,t)= P,\;\longleftarrow\; \text{Constant Input of the Substance}  \tag{17}\]</span></span></p>
 <p><span class="math inline">\(\hspace{3.7em}u(x,0)=0, \;\longleftarrow\; \text{Initially a Clean Air}\)</span></p></li>
 </ul>
 </section>
@@ -2086,7 +2086,7 @@ u(x,0) &amp;= u_0, \,\;\;\;\;\;\;\;\;\;\;\;\;\; 0 &lt; x &lt;\infty
 
 <ul>
 <li><p>To see what happens when a moving wave diffuses, <span class="math inline">\(~\)</span>we solve the following problem <span class="math inline">\((P=1)\)</span> <span class="math inline">\(~\)</span></p>
-<p><span id="eq-dc1"><span class="math display">\[\;\;\;\;\;u_t = Du_{xx}-Vu_x,\;\;\;\;\, -\infty&lt;x&lt;\infty,\;0&lt;t&lt;\infty \qquad(18)\]</span></span></p>
+<p><span id="eq-dc1"><span class="math display">\[\;\;\;\;\;u_t = Du_{xx}-Vu_x,\;\;\;\;\, -\infty&lt;x&lt;\infty,\;0&lt;t&lt;\infty \tag{18}\]</span></span></p>
 <p><span class="math inline">\(\hspace{3.2em}u(x,0) = P\left(1 -H(x)\right), \;\;\,-\infty&lt;x&lt;\infty\)</span></p>
 <p><span class="math inline">\(~\)</span></p>
 <p>Note that in the new problem <a href="#/eq-dc1">Eq.&nbsp;18</a>, <span class="math inline">\(~\)</span>we have moved the boundary to <span class="math inline">\(-\infty\)</span> (we now have an initial-value problem)</p></li>
@@ -2363,7 +2363,7 @@ u(x,0) &amp;= u_0, \,\;\;\;\;\;\;\;\;\;\;\;\;\; 0 &lt; x &lt;\infty
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

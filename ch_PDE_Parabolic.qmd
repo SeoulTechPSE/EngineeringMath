@@ -28,7 +28,8 @@ revealjs-plugins:
 #filters:
 #  - reveal-header
 #  - code-fullscreen     
-jupyter: python3    
+jupyter: python3  
+html-math-method: "mathjax" 
 ---
 
 ### Lesson 1. Introduction to Partial Differential Equations 
