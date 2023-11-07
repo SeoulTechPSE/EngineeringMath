@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "ch_PDE_Parabolic.html#welcome-to-hyperbolic-partial-differential-equations",
+    "href": "ch_PDE_Parabolic.html#welcome-to-hyperbolic-partial-differential-equations",
+    "title": "Engineering Mathematics II",
+    "section": " Welcome toHyperbolic Partial Differential Equations ",
+    "text": "Welcome toHyperbolic Partial Differential Equations"
+  },
+  {
+    "objectID": "ch12_Orthogonal_Functions_and_Fourier_Series.html#welcome-to-parabolic-partial-differential-equations",
+    "href": "ch12_Orthogonal_Functions_and_Fourier_Series.html#welcome-to-parabolic-partial-differential-equations",
+    "title": "Engineering Mathematics II",
+    "section": " Welcome toParabolic Partial Differential Equations ",
+    "text": "Welcome toParabolic Partial Differential Equations"
+  },
+  {
+    "objectID": "ch_PDE_Hyperbolic.html#lesson-22.-boundary-conditions-associated-with-the-wave-equation",
+    "href": "ch_PDE_Hyperbolic.html#lesson-22.-boundary-conditions-associated-with-the-wave-equation",
+    "title": "Engineering Mathematics II",
+    "section": "Lesson 22. Boundary Conditions Associated with the Wave Equation",
+    "text": "Lesson 22. Boundary Conditions Associated with the Wave Equation\nThe purpose of this lesson is to discuss some of the various types of BCs that are associated with physical problems of wave motions. Here, \\(~\\)we will stick to one-dimensional problems where the BCs (linear ones) are generally groupded into one of three kinds"
+  },
+  {
+    "objectID": "ch_PDE_Hyperbolic.html#lesson-23.-the-finite-vibrating-string-standing-waves",
+    "href": "ch_PDE_Hyperbolic.html#lesson-23.-the-finite-vibrating-string-standing-waves",
+    "title": "Engineering Mathematics II",
+    "section": "Lesson 23. The Finite Vibrating String (Standing Waves)",
+    "text": "Lesson 23. The Finite Vibrating String (Standing Waves)\n\nSo far, \\(~\\)we have studied the wave equation \\(u_{tt}=c^2 u_{xx}\\) for the unbounded domain and have found D’Alembert solutions to be certain traveling waves (moving in opposite directions)\nWhen we study the same wave equation in a bounded region of space \\(0<x<L\\), \\(~\\)we find that the waves no longer appear to be moving due to their repeated interaction with the boundaries and, in fact, often appear to be what are known as standing waves"
+  },
+  {
+    "objectID": "ch_PDE_Hyperbolic.html#welcome-to-elliptic-partial-differential-equations",
+    "href": "ch_PDE_Hyperbolic.html#welcome-to-elliptic-partial-differential-equations",
+    "title": "Engineering Mathematics II",
+    "section": " Welcome toElliptic Partial Differential Equations ",
+    "text": "Welcome toElliptic Partial Differential Equations"
+  },
+  {
+    "objectID": "ch08_Matrices.html#lu-factorization",
+    "href": "ch08_Matrices.html#lu-factorization",
+    "title": "Engineering Mathematics I",
+    "section": "8.13 \\(~\\) LU Factorization",
+    "text": "8.13 \\(~\\) LU Factorization\n\nLet \\(\\mathbf{A}\\) be a square matrix. \\(~\\)An LU factorization refers to the factorization of \\(\\mathbf{A}\\) into two factors – a lower triangular matrix \\(\\mathbf{L}\\) and an upper triangular matrix \\(\\mathbf{U}\\):\n\n\\[\\mathbf{A}=\\mathbf{L}\\mathbf{U}\\]"
+  }
+]

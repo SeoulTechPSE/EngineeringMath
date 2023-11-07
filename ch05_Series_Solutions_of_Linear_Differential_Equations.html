@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/tabby.min.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.2.335">
+
+  <title>Engineering Mathematics I</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="site_libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="site_libs/revealjs/dist/theme/quarto.css" id="theme">
+  <link rel="stylesheet" href="styles.css">
+  <link href="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-captioned.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-captioned) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-captioned.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-captioned .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-captioned .callout-caption  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-captioned.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-captioned.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-caption {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-caption {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-caption {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+    margin-bottom: 0.5rem;
+  }
+
+  .callout.callout-captioned .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-captioned) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-caption {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-caption {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-caption {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-caption {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-caption {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Engineering Mathematics I</h1>
+  <p class="subtitle"><font color="red">Chapter 5. Series Solutions of Linear Differential Equations</font></p>
+
+<div class="quarto-title-authors">
+</div>
+
+</section>
+<section id="solutions-about-ordinary-points" class="slide level3">
+<h3>5.1 Solutions about Ordinary Points</h3>
+<ul>
+<li><p>A power series in <span class="math inline">\(x -a\)</span> is an infinite series of the form</p>
+<p><span class="math display">\[\sum_{n=0}^\infty c_n(x -a)^n = c_0 +c_1(x -a) +c_2(x -a)^2 +\cdots\]</span></p>
+<p>Such a series is also said to be a <strong>power series centered at <span class="math inline">\(a\)</span></strong></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>A power series is <strong>convergent</strong> if its sequence of partial sums converges</p>
+<ul>
+<li><p>Convergence of power series can often be determined by the ratio test. Suppose that <span class="math inline">\(c_n \neq 0\)</span> for all <span class="math inline">\(n\)</span>, and that</p>
+<p><span class="math display">\[\lim_{n \to \infty} \left| \frac{c_{n+1} (x -a)^{n +1}}{c_n (x -a)^n} \right|
+  =|x -a| \lim_{n \to \infty} \left| \frac{c_{n +1}}{c_n} \right| =L\]</span></p>
+<p>If <span class="math inline">\(L&lt;1\)</span>, the series converges absolutely, if <span class="math inline">\(L&gt;1\)</span>, the series diverges, and if <span class="math inline">\(L=1\)</span>, the test is inconclusive</p></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><ul>
+<li class="fragment"><p>Every power series has a <strong>radius of convergence</strong>, <span class="math inline">\(R\)</span>. If <span class="math inline">\(R&gt;0\)</span>, a power series <span class="math inline">\(\sum_{n=0}^\infty c_n (x -a)^n\)</span> converges for <span class="math inline">\(|x -a| &lt; R\)</span></p></li>
+<li class="fragment"><p>A function <span class="math inline">\(~f\)</span> ia <strong>analytic</strong> at point <span class="math inline">\(a\)</span> if it can be represented by a power series in <span class="math inline">\(x -a\)</span> with a positive radius of convergence</p></li>
+<li class="fragment"><p>Power series can be combined through the operations of addition, multiplication, and division</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><p>Consider the linear second-order DE</p>
+<p><span class="math display">\[a_2(x) y'' +a_1(x) y' +a_0(x)y = 0,\;\;a_2(x)\neq0\]</span></p>
+<ul>
+<li class="fragment"><p>Divide by <span class="math inline">\(a_2(x)\)</span> to put into standard form</p>
+<p><span class="math display">\[y'' +P(x)y' +Q(x)y = 0\]</span></p></li>
+<li class="fragment"><p>Point <span class="math inline">\(x_0\)</span> is an <strong>ordinary point</strong> of the DE if both <span class="math inline">\(P(x)\)</span> and <span class="math inline">\(Q(x)\)</span> are analytic at <span class="math inline">\(x_0\)</span>. <span class="math inline">\(~\)</span>A point that is not an ordinary point is a <strong>singular point</strong> of the equation</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><ul>
+<li class="fragment"><p>If <span class="math inline">\(x=x_0\)</span> is an ordinary point of the DE, <span class="math inline">\(~\)</span>we can always find <strong>two linearly independent solutions</strong> in the form of a power series centered at <span class="math inline">\(x_0\)</span></p></li>
+<li class="fragment"><p>A series solution converges at least on some interval defined by <span class="math inline">\(|x -x_0|&lt;R\)</span>, <span class="math inline">\(~\)</span>where <font color="blue"><span class="math inline">\(R\)</span> is the distance from <span class="math inline">\(x_0\)</span> to the closest singular point</font></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<p><strong>Example:</strong> <span class="math inline">\(~\)</span> Solve <span class="math inline">\(y'' +xy =0\)</span></p>
+<ul>
+<li><p>Since there are no finite singular points, <span class="math inline">\(~\)</span>two power series solutions are guaranteed, centered at <span class="math inline">\(0\)</span>, convergent for <span class="math inline">\(|x|&gt;\infty\)</span></p></li>
+<li><p>Substituting <span class="math inline">\(~y=\sum_{n=0}^\infty c_n x^n\)</span> and the second derivative <span class="math inline">\(y''=\sum_{n=2}^\infty c_n n(n -1) x^{n -2}\)</span> into the DE gives</p>
+<p><span class="math display">\[
+\begin{align*}
+  y'' +xy &amp;= \sum_{n=2}^\infty c_n n(n-1) x^{n -2} +\sum_{n=0}^\infty c_n x^{n +1}\\
+  &amp;= 2c_2 +\sum_{k=1}^{\infty} \left[(k +1)(k +2) c_{k +2} +c_{k -1} \right] x^k =0
+\end{align*}
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p>The coefficient of each power of <span class="math inline">\(x\)</span> be set equal to zero:</p>
+<p><span class="math display">\[c_2 =0 \;\;\text{and}\;\; \displaystyle c_{k +2} =-\frac{c_{k -1}}{(k+1)(k+2)}, \;k=1,2,3,\cdots\]</span></p>
+<p><span class="math display">\[{\scriptsize
+   \begin{align*}
+    c_3 &amp;= -\frac{c_0}{2\cdot3} \\
+    c_4 &amp;= -\frac{c_1}{3\cdot4} \\
+    c_5 &amp;= -\frac{c_2}{4\cdot5} = 0 \\
+    c_6 &amp;= -\frac{c_3}{5\cdot6} = \frac{c_0}{2\cdot3\cdot5\cdot6} \\
+    c_7 &amp;= -\frac{c_4}{6\cdot7} = \frac{c_1}{3\cdot4\cdot6\cdot7}\\
+    c_8 &amp;= -\frac{c_5}{7\cdot8} = 0 \\
+    &amp;\;\;\vdots
+  \end{align*}}\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>After grouping the terms containing <span class="math inline">\(c_0\)</span> and the terms containing <span class="math inline">\(c_1\)</span>, <span class="math inline">\(~\)</span>we obtain <span class="math inline">\(y = c_0 y_1(x) +c_1 y_2(x)\)</span></p>
+<p><span class="math display">\[\begin{align*}
+    y_1(x) &amp;= 1 +\sum_{n=1}^\infty \frac{(-1)^n}{2\cdot3 \cdots (3n -1)(3n)}x^{3n}\\
+    y_2(x) &amp;= x +\sum_{n=1}^\infty \frac{(-1)^n}{3\cdot4 \cdots (3n)(3n +1)}x^{3n +1}
+  \end{align*}\]</span></p>
+</section>
+<section id="solutions-about-singular-points" class="slide level3">
+<h3>5.2 Solutions about Singular Points</h3>
+<ul>
+<li><p>Consider the linear second-order DE</p>
+<p><span class="math display">\[(x -x_0)^2 y'' +(x -x_0) p(x) y' +q(x) y = 0\]</span></p>
+<ul>
+<li><p>Point <span class="math inline">\(x_0\)</span> is a <strong>regular singular point</strong> of the DE if both <span class="math inline">\(p(x)\)</span> and <span class="math inline">\(q(x)\)</span> are analytic at <span class="math inline">\(x_0\)</span></p></li>
+<li><p>A singular point that is not regular is an <strong>irregular singular point</strong> of the equation</p></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>To solve a DE about a regular singular point, <span class="math inline">\(~\)</span>we employ <strong>Frobenius’ Theorem</strong></p>
+<ul>
+<li><p>If <span class="math inline">\(x_0\)</span> is a regular singular point of the standard DE, <span class="math inline">\(~\)</span>there exists <strong>at least one nonzero solution</strong> of the form</p>
+<p><span class="math display">\[y=(x -x_0)^r \sum_{n=0}^\infty c_n (x -x_0)^n = \sum_{n=0}^\infty c_n (x -x_0)^{n+r}\]</span></p>
+<p>where <span class="math inline">\(r\)</span> is a constant, and the series converges at least on some interval, <span class="math inline">\(~0 &lt; x -x_0 &lt; R\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><ul>
+<li class="fragment"><p>After substituting <span class="math inline">\(y =\sum_{n=0}^\infty c_n (x -x_0)^{n+r}\)</span> into a DE and simplifying, the <strong>indicial equation</strong> is obtained, <span class="math inline">\(~\)</span><font color="blue">a quadratic equation in <span class="math inline">\(r\)</span> that results from equating the total coefficient of the lowest power of <span class="math inline">\(x\)</span> to zero</font></p></li>
+<li class="fragment"><p>The <strong>indicial roots</strong> are the solutions to the quadratic equation and are then substituted into a recurrence relation</p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<p><strong>Suppose that <span class="math inline">\(x=x_0\)</span> ia a regular singular point of a DE and the indicial roots are <span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span></strong>: <span class="math inline">\(\;r_1 \geq r_2\)</span></p>
+<ul>
+<li><p><strong>Case I</strong></p>
+<p><span class="math inline">\(r_1\)</span> and <span class="math inline">\(r_2\)</span> are distinct <font color="red"> and do not differ by an integer</font>,</p>
+<p><span class="math display">\[\begin{align*}
+       y_1(x) &amp;= \sum_{n=0}^\infty \color{red}{c_n} (x -x_0)^{n +\color{red}{r_1}} \\
+       y_2(x) &amp;= \sum_{n=0}^\infty \color{red}{b_n} (x -x_0)^{n +\color{red}{r_2}}
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Case II</strong></p>
+<p><span class="math inline">\(r_1 -r_2 = N\)</span>, <span class="math inline">\(~\)</span><font color="red">where <span class="math inline">\(N\)</span> is a positive integer</font>,</p>
+<p><span class="math display">\[\begin{align*}
+     y_1(x) &amp;= \sum_{n=0}^\infty \color{red}{c_n} (x -x_0)^{n +\color{red}{r_1}}, \; c_0 \neq 0\\
+     y_2(x) &amp;= \color{red}{C}y_1(x)\ln (x -x_0) +\sum_{n=0}^\infty \color{red}{b_n} (x -x_0)^{n +\color{red}{r_2}}, \; b_0 \neq 0
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Case III</strong></p>
+<p><span class="math inline">\(r_1=r_2\)</span>,</p>
+<p><span class="math display">\[\begin{align*}
+     y_1(x) &amp;= \sum_{n=0}^\infty \color{red}{c_n} (x -x_0)^{n +\color{red}{r_1}}, \; c_0 \neq 0\\
+     y_2(x) &amp;= y_1(x)\ln (x -x_0) +\sum_{n=0}^\infty \color{red}{b_n} (x -x_0)^{n +\color{red}{r_1} }
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p><strong>Example:</strong> <span class="math inline">\(~\)</span> Solve <span class="math inline">\(\,2xy'' +(1 +x)y' +y = 0\)</span></p>
+<ul>
+<li><p>Substituting <span class="math inline">\(y = \sum_{n=0}^\infty c_n x^{n +r}\)</span> gives</p>
+<p><span class="math display">\[{\tiny
+\begin{align*}
+2xy'' &amp;+(1 +x)y' +y \\&amp;= 2\sum_{n=0}^\infty (n +r)(n +r -1)c_n x^{n +r -1}
+  +\sum_{n=0}^\infty (n +r) c_n x^{n +r -1}
+  +\sum_{n=0}^\infty (n +r) c_n x^{n +r}
+  +\sum_{n=0}^\infty c_n x^{n +r}\\
+  &amp;= x^r\left[r(2r -1) c_0 x^{-1} +\sum_{k=0}^\infty [(k + r +1)(2k +2r +1) c_{k +1} +(k +r +1) c_k] x^k \right] = 0
+\end{align*}}
+\]</span></p>
+<p>which implies</p>
+<p><span class="math display">\[\begin{align*}
+  &amp;r(2r -1) = 0\\
+  &amp;(k + r +1)(2k +2r +1) c_{k +1} +(k +r +1) c_k =0, \;\;k=0,1,\cdots
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>We see that the indicial roots are <span class="math inline">\(r_1=\frac{1}{2}\)</span> and <span class="math inline">\(r_2=0\)</span></p>
+<p><span class="math display">\[\begin{align*}
+r_1 = \frac{1}{2}, &amp;\;\;c_{k+1} =-\frac{c_k}{2(k +1)}, \;k=0,1,2, \cdots\, \\
+r_2 = 0,\; &amp;\;\;c_{k+1} =-\frac{c_k}{2k +1}, \;k=0,1,2, \cdots \,\\
+  \end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>For <span class="math inline">\(r_1=\frac{1}{2}\)</span>,</p>
+<p><span class="math display">\[\small
+\begin{align*}
+c_1 &amp;= -\frac{c_0}{2\cdot1}\\
+c_2 &amp;= -\frac{c_1}{2\cdot2}=\frac{c_0}{2^2\cdot2!}\\
+c_3 &amp;= -\frac{c_2}{2\cdot3}=\frac{-c_0}{2^3\cdot3!}\\
+c_4 &amp;= -\frac{c_3}{2\cdot4}=\frac{c_0}{2^4\cdot4!}\\
+  &amp;\;\vdots \\
+c_n &amp;= \frac{(-1)^n c_0}{2^n n!}
+\end{align*}\]</span></p></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li><p>For <span class="math inline">\(r_2=0\)</span>,</p>
+<p><span class="math display">\[\small
+\begin{align*}
+  c_1 &amp;= -\frac{c_0}{1}\\
+  c_2 &amp;= -\frac{c_1}{3}=\frac{c_0}{1\cdot3}\\
+  c_3 &amp;= -\frac{c_2}{5}=\frac{-c_0}{1\cdot3\cdot5}\\
+  c_4 &amp;= -\frac{c_3}{7}=\frac{c_0}{1\cdot3\cdot5\cdot7}\\ &amp;\;\vdots \\
+  c_n &amp;= \frac{(-1)^n c_0}{1\cdot3\cdot5\cdot7\cdots (2n -1)}
+\end{align*}\]</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>The series solutions are</p>
+<p><span class="math display">\[
+\begin{align*}
+   y_1(x) &amp;= x^{1/2} \left[ 1 +\sum_{n=1}^\infty \frac{(-1)^n}{2^n n!} x^n \right ]\\
+   y_2(x) &amp;= 1 +\sum_{n=1}^\infty \frac{(-1)^n}{1\cdot3\cdot5\cdot7\cdots(2n -1)} x^n
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section id="special-functions" class="slide level3">
+<h3>5.3 Special Functions</h3>
+<p>The following DEs occur frequently in advanced studies in applied mathematics, physics, and engineering</p>
+<ul>
+<li><p><font color="red"><strong>Bessel’s equation of order <span class="math inline">\(\nu\)</span></strong>, <span class="math inline">\(~\)</span>solutions are <strong>Bessel functions</strong></font></p>
+<p><span class="math display">\[x^2 y'' +xy' +(x^2 -\nu^2) y =0\]</span></p></li>
+<li><p><font color="red"><strong>Legendre’s equation of order <span class="math inline">\(n\)</span></strong>, <span class="math inline">\(~\)</span>solutions are <strong>Legendre polynomials</strong></font></p>
+<p><span class="math display">\[(1 -x^2)y'' -2xy' +n(n +1)y =0\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<h4 id="bessel-functions">5.3.1 Bessel Functions</h4>
+<p>Because <span class="math inline">\(x=0~\)</span> is a regular singular point of Bessel’s equation, there exists at least one solution of the form <span class="math inline">\(y=\sum_{n=0}^\infty c_n x^{n +r}\)</span></p>
+<p><span class="math display">\[
+\begin{align*}
+x^2 &amp;y'' +xy' +(x^2 -\nu^2)y \\
+&amp;= \sum_{n=0}^\infty c_n (n +r)(n +r -1) x^{n +r}  
+     +\sum_{n=0}^\infty c_n (n +r) x^{n +r} \\
+     &amp;\qquad+\sum_{n=0}^\infty c_n x^{n +r +2}
+     -\nu^2 \sum_{n=0}^\infty c_n x^{n +r}\\
+&amp;= \color{red}{c_0 (r^2 -\nu^2) x^r} +x^r \sum_{n=1}^\infty c_n [(n +r)^2 -\nu^2] x^n +x^r \sum_{n=0}^\infty c_n x^{n +2} = 0
+\end{align*}
+\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>The indicial equation is <font color="red"><span class="math inline">\(~r^2 -\nu^2=0\)</span></font> <span class="math inline">\(~\)</span>so that the indicial roots are <font color="red"><span class="math inline">\(r_1=\nu\)</span> and <span class="math inline">\(r_2=-\nu\)</span></font>. <font color="blue">When <span class="math inline">\(\,r_1=\nu \geq 0\)</span></font>,</p>
+<p><span class="math display">\[\tiny
+\begin{align*}
+  x^\nu \sum_{n=1}^\infty &amp;c_n n(n +2\nu) x^n +x^\nu \sum_{n=0}^\infty c_n x^{n +2} \\
+     &amp;= x^\nu \left[ (1 +2\nu) c_1 x +\sum_{k=0}^\infty \left[(k +2)(k +2 +2\nu) c_{k+2}
+     +c_k\right]x^{k +2} \right] = 0 \\
+     &amp;\Downarrow \\
+     c_1 &amp;= 0,\;\; c_{k+2} = \frac{-c_k}{(k +2)(k +2 +2\nu)}, \;\;k=0,1,2,\cdots \\
+     &amp;\Downarrow\\
+     c_3&amp;=c_5=c_7=\cdots=0, \\
+     c_{2n}&amp;=-\frac{c_{2n -2}}{2^2 n(n +\nu)}  \;\;\leftarrow\;\;k+2=2n
+\end{align*}\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>Thus</p>
+<p><span class="math display">\[{\scriptsize
+\begin{align*}
+    c_2 &amp;= -\frac{c_0}{2^2\cdot1\cdot(1 +\nu)}\\
+    c_4 &amp;= -\frac{c_2}{2^2\cdot2\cdot(2 +\nu)} \\
+    &amp;= \frac{c_0}{2^4 \cdot 1 \cdot 2(1 +\nu)(2 +\nu)}\\
+    c_6 &amp;= -\frac{c_4}{2^2\cdot3\cdot(3 +\nu)} \\
+    &amp;=-\frac{c_0}{2^6 \cdot 1 \cdot 2 \cdot 3 (1 +\nu)(2 +\nu)(3 +\nu)}\\
+        &amp;\;\vdots \\
+  c_{2n} &amp;= \frac{(-1)^n c_0}{2^{2n} n! (1 +\nu)(2 +\nu)\cdots(n +\nu)}\\    
+\end{align*}}\]</span></p>
+</section>
+<section class="slide level3">
+
+<p><span class="math display">\[{\scriptsize
+\begin{align*}
+   &amp;\;\big\Downarrow \;{\scriptsize\text{It is standard practice to choose}}\; \\
+   c_0&amp;=\frac{1}{2^\nu \Gamma(1 +\nu)} \\
+   &amp;\text{thus, } \\
+  c_{2n} &amp;= \frac{(-1)^n}{2^{2n +\nu} n!\, \Gamma(1 +\nu +n)}
+  \end{align*}}\]</span></p>
+<p><br></p>
+<div class="fragment">
+<p><strong>Note:</strong> <span class="math inline">\(~\)</span> <span class="math inline">\(\displaystyle\Gamma(\nu)=\;\int_0^\infty x^{\nu -1} e^{-x} \,dx\)</span>, <span class="math inline">\(\;\Gamma(\nu +1)=\nu\Gamma(\nu)\)</span></p>
+</div>
+</section>
+<section class="slide level3">
+
+<div class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-ch03-gamma-function" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch05_Series_Solutions_of_Linear_Differential_Equations_files/figure-revealjs/fig-ch03-gamma-function-output-1.png" width="820" height="508"></p>
+<p></p><figcaption>Figure&nbsp;1: Gamma Function</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Bessel Functions of the First Kind</strong></p>
+<p>The series solution <span class="math inline">\(y_1=\sum_{n=0}^\infty c_{2n} x^{2n +\nu}\)</span> is usually denoted by <span class="math inline">\(J_\nu(x)\)</span></p>
+<p><font color="red"><span class="math display">\[J_\nu(x)=\sum_{n=0}^\infty \frac{(-1)^n}{n!\, \Gamma(1 +\nu +n)} \left( \frac{x}{2} \right)^{2n +\nu}\]</span></font></p>
+<p>Also, for the second exponent <span class="math inline">\(r_2=-\nu\)</span></p>
+<p><span class="math display">\[J_{-\nu}(x)=\sum_{n=0}^\infty \frac{(-1)^n}{n!\, \Gamma(1 -\nu +n)} \left( \frac{x}{2} \right)^{2n -\nu}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><ul>
+<li class="fragment"><p>When <span class="math inline">\(~\nu=0\)</span>, <span class="math inline">\(~J_0(x)\)</span></p></li>
+<li class="fragment"><p>When <span class="math inline">\(r_1 -r_2 = 2\nu~\)</span> is not positive integer, <span class="math inline">\(~J_\nu(x)\)</span> and <span class="math inline">\(J_{-\nu}(x)\)</span> are linearly independent</p></li>
+<li class="fragment"><p>When <span class="math inline">\(r_1 -r_2 = 2\nu~\)</span> is positive integer, <span class="math inline">\(~\)</span>there are two possibilities</p>
+<ul>
+<li class="fragment"><p>When <span class="math inline">\(\nu = m =\)</span> positive integer, <span class="math inline">\(~J_{-m}(x)\)</span> is a constant multiple of <span class="math inline">\(J_m(x)\)</span> : <span class="math inline">\(~J_m(x)=(-1)^m J_{-m}(x)\)</span></p></li>
+<li class="fragment"><p>When <span class="math inline">\(\nu\)</span> is half an odd positive integer, <span class="math inline">\(~J_\nu(x)\)</span> and <span class="math inline">\(J_{-\nu}(x)\)</span> are linearly independent</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<p><strong>Example:</strong> <span class="math inline">\(~\)</span> Solve <span class="math inline">\(~x^2y'' +xy' +(x^2 -\frac{1}{4})y=0\)</span></p>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Bessel Functions of the Second Kind</strong></p>
+<p>If <span class="math inline">\(\nu \neq\)</span> integer</p>
+<p><span class="math display">\[Y_\nu(x)=\frac{\cos \nu \pi J_\nu(x) -J_{-\nu}(x)}{\sin \nu \pi}\]</span></p>
+<p><span class="math inline">\(J_\nu(x)\)</span> and <span class="math inline">\(Y_\nu(x)\)</span> are linearly independent solutions of</p>
+<p><span class="math display">\[x^2 y'' +xy' +(x^2 -\nu^2) y =0\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p>As <span class="math inline">\(\nu \rightarrow m\,(\text{an integer})\)</span>,</p>
+<p><span class="math display">\[Y_m(x)=\lim_{\nu \to m} Y_\nu(x)\]</span></p>
+<p><span class="math inline">\(J_m(x)\)</span> and <span class="math inline">\(Y_m(x)\)</span> are linearly independent solutions of</p>
+<p><span class="math display">\[x^2 y'' +xy' +(x^2 -m^2) y =0\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>Hence for <em>any</em> value of <span class="math inline">\(\nu\)</span>, <span class="math inline">\(~\)</span>the general solution of Bessel equation can be written as</p>
+<p><span class="math display">\[y=c_1 J_\nu(x) +c_2 Y_\nu(x)\]</span></p>
+<p><span class="math inline">\(Y_\nu(x)\)</span> is called the <strong>Bessel function of the second kind</strong> of order <span class="math inline">\(\nu\)</span></p>
+<p><br></p>
+<p><strong>Example:</strong> <span class="math inline">\(~\)</span> Solve <span class="math inline">\(~x^2y'' +xy' +(x^2 -9)y=0\)</span></p>
+</section>
+<section class="slide level3">
+
+<h4 id="des-solvable-in-terms-of-bessel-functions"><strong>DEs Solvable in Terms of Bessel Functions</strong></h4>
+<ul>
+<li><p>Parametric Bessel equation of order <span class="math inline">\(\nu\)</span></p>
+<p><span class="math display">\[\begin{align*}
+   x^2 y'' +x y' &amp;+(\color{red}{\alpha^2} x^2 -\nu^2) y = 0 \\
+   &amp;\;\Big\Downarrow \;t=\alpha x, \;\alpha&gt;0 \\
+   t^2\frac{d^2y}{dt^2} +t\frac{dy}{dt} &amp;+(t^2 -\nu^2)y = 0 \\
+   &amp;\Downarrow \\
+   y = c_1 J_\nu(\color{red}{\alpha} x) &amp;+c_2 Y_\nu(\color{red}{\alpha} x)
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>Modified Bessel equation of order <span class="math inline">\(\nu\)</span></p>
+<p><span class="math display">\[\begin{align*}
+   x^2 y'' +x y' &amp;\color{red}{-}(x^2 +\nu^2) y = 0 \\
+   &amp;\;\Big\Downarrow \;t=ix \\
+   t^2\frac{d^2y}{dt^2} +t\frac{dy}{dt} &amp;+(t^2 -\nu^2)y = 0 \\
+   &amp;\;\Bigg\Downarrow \;{\tiny I_\nu(x)=i^{-\nu} J_\nu(ix),
+   \;K_\nu(x)=\frac{\pi}{2}\frac{I_{-\nu}(x) -I_{\nu}(x)}{\sin\nu\pi}, \;K_m(x)=\lim_{\nu\to m} K_\nu(x) } \\
+   y = c_1 \color{red}{I_\nu(x)} &amp;+c_2 \color{red}{K_\nu(x)}
+\end{align*}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li>Yet another equation</li>
+</ul>
+<p><span class="math display">\[{\small
+     \begin{align*}
+       {\scriptsize y'' +\frac{1 -2a}{x} y' }&amp;{\scriptsize +\left( b^2 c^2 x^{2c -2} +\frac{a^2 -p^2 c^2}{x^2}\right)y=0, \;p \geq 0 } \\
+       &amp;\Bigg\Downarrow \;{\scriptsize z=bx^c, \;y(x)=\left( \frac{z}{b} \right )^{a/c} w(z) }\\
+       y=x^a &amp;\left[c_1 J_p(bx^c) +c_2 Y_p(bx^c)\right]
+   \end{align*}}\]</span></p>
+</section>
+<section class="slide level3">
+
+<ul>
+<li>The aging spring</li>
+</ul>
+<p><span class="math display">\[{\small
+     \begin{align*}
+       m\ddot{x} &amp;+ke^{-\alpha t}x = 0, \;\alpha &gt; 0 \\
+       &amp;\,\Bigg\Downarrow \;{\scriptsize s = \frac{2}{\alpha} \sqrt{\frac{k}{m}} e^{-\alpha t/2} }\\
+       {\scriptsize s^2 \frac{d^2 x}{ds^2} }&amp;{\scriptsize +s\frac{dx}{ds} +s^2 x = 0 }
+  \end{align*}}\]</span></p>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><p><strong>Properties of Bessel Functions</strong> when <span class="math inline">\(m\)</span> is integer</p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(\displaystyle \color{blue}{J_m(x) = \sum_{n=0}^\infty \frac{(-1)^n}{n!(n + m)!} \left( \frac{x}{2} \right)^{2n + m}}\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(J_{-m}(x)=(-1)^m J_m(x)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(J_{m}(-x)=(-1)^m J_m(x)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(J_m(0)=\left\{\begin{matrix} 0, &amp; m &gt; 0\\ 1, &amp; m = 0 \end{matrix}\right.\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(\displaystyle\lim_{x \to 0^+} Y_m(x)=-\infty\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<div class="cell" data-execution_count="2">
+<div class="cell-output cell-output-display">
+<div id="fig-ch05-bessel-function" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch05_Series_Solutions_of_Linear_Differential_Equations_files/figure-revealjs/fig-ch05-bessel-function-output-1.png" width="768" height="585"></p>
+<p></p><figcaption>Figure&nbsp;2: Bessel functions</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Differential Recurence Relation</strong></p>
+<p><span class="math display">\[
+\begin{align*}
+  xJ_\nu'(x)&amp;= {\scriptsize \sum_{n=0}^\infty \frac{(-1)^n(2n +\nu)}{n! \, \Gamma(1 +\nu +n)}
+  \left( \frac{x}{2}\right )^{2n +\nu}}\\
+  &amp;= {\tiny \nu \sum_{n=0}^\infty \frac{(-1)^n}{n! \, \Gamma(1 +\nu +n)} \left( \frac{x}{2}\right )^{2n +\nu}
+  +x\sum_{n=1}^\infty \frac{(-1)^n}{(n -1)! \, \Gamma(1 +\nu +n)} \left( \frac{x}{2}\right )^{2n +\nu -1} }\\
+  &amp;= {\scriptsize \nu J_\nu(x) -x\sum_{k=0}^\infty \frac{(-1)^k}{k! \, \Gamma(2 +\nu +k)}
+  \left( \frac{x}{2}\right )^{2k +\nu +1} }\\
+  &amp;= {\scriptsize \nu J_\nu(x) -x J_{\nu+1}(x) }\\
+  &amp;\;\big\Downarrow\;\times x^{-\nu -1} \\
+  \color{blue}{\frac{d}{dx} [x^{-\nu}J_\nu(x)]}&amp; \color{blue}{=-x^{-\nu} J_{\nu+1}(x)}
+\end{align*}
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p>and</p>
+<p><span class="math display">\[
+  \begin{align*}
+     xJ_\nu'(x)&amp;= -\nu J_\nu(x) +x J_{\nu -1}(x)\\
+     &amp;\;\big\Downarrow\;\times x^{\nu -1} \\
+     \color{blue}{\frac{d}{dx} [x^{\nu}J_\nu(x)]} &amp; \color{blue}{=x^{\nu} J_{\nu -1}(x)}
+  \end{align*}  
+\]</span></p>
+<p><br></p>
+<div class="fragment">
+<p><strong>Example:</strong> <span class="math inline">\(~\)</span> <span class="math inline">\(J_0'(x)=-J_1(x)\)</span></p>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Spherical Bessel Functions:</strong></p>
+<p>When solving the Helmholtz equation in spherical coordinates by separation of variables, <span class="math inline">\(~\)</span>the radial equation has the form</p>
+<p><span class="math display">\[x^2 y'' +2xy' +\left(x^2 -n(n+1)\right)y=0\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p>The two linearly independent solutions to this equation are called the spherical Bessel functions <span class="math inline">\(j_n\)</span> and <span class="math inline">\(y_n\)</span></p>
+<p><span class="math display">\[{\scriptsize j_n(x)=\color{blue}{\sqrt{\frac{\pi}{2x}}} J_{n +\frac{1}{2}}(x) }\]</span></p>
+<p><span class="math display">\[{\scriptsize y_n(x)=\color{blue}{\sqrt{\frac{\pi}{2x}}} Y_{n +\frac{1}{2}}(x)=(-1)^{n +1}\sqrt{\frac{\pi}{2x}} J_{-n -\frac{1}{2}}(x) }\]</span></p>
+<p>when <span class="math inline">\(\nu=n +\frac{1}{2}\)</span> is half an odd integer, that is, <span class="math inline">\(~\pm\frac{1}{2}\)</span>, <span class="math inline">\(\pm\frac{3}{2}\)</span>, <span class="math inline">\(\pm\frac{5}{2}\)</span>, <span class="math inline">\(\cdots\)</span></p>
+</section>
+<section class="slide level3">
+
+<p>Let’s consider the case when <span class="math inline">\(~\nu=\frac{1}{2}\)</span>,</p>
+<p><span class="math display">\[\tiny J_{1/2}(x)=\sum_{n=0}^\infty \frac{(-1)^n}{n!\, \Gamma(1 +\frac{1}{2} +n)} \left( \frac{x}{2} \right)^{2n +1/2}\]</span></p>
+<p>where <span class="math display">\[{\tiny
+\begin{align*}
+\Gamma\left(\frac{1}{2} \right ) &amp;= \sqrt{\pi}\\
+\Gamma\left(\frac{3}{2} \right ) &amp;= \Gamma\left(1 +\frac{1}{2} \right )
+    = \frac{1}{2}\Gamma\left(\frac{1}{2} \right )=\frac{1}{2} \sqrt{\pi}\\
+\Gamma\left(\frac{5}{2} \right ) &amp;= \Gamma\left(1 +\frac{3}{2} \right )
+    = \frac{3}{2}\Gamma\left(\frac{3}{2} \right )=\frac{3}{2^2} \sqrt{\pi}
+    = \frac{3\cdot2}{2^3} \sqrt{\pi} = \frac{3!}{2^3} \sqrt{\pi}\\
+\Gamma\left(\frac{7}{2} \right ) &amp;= \Gamma\left(1 +\frac{5}{2} \right )
+    = \frac{5}{2}\Gamma\left(\frac{5}{2} \right ) = \frac{5\cdot3}{2^3} \sqrt{\pi}
+    = \frac{5\cdot4\cdot3\cdot2}{2^3\cdot4\cdot2} \sqrt{\pi} = \frac{5!}{2^5 2!} \sqrt{\pi}\\
+&amp;\;\vdots \\
+\Gamma\left(1 +\frac{1}{2} +n \right ) &amp;= \frac{(2n +1)!}{2^{2n +1} n!} \sqrt{\pi}
+\end{align*}}\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>Hence</p>
+<p><span class="math display">\[J_{1/2}(x)={\tiny \sum_{n=0}^\infty \frac{(-1)^n}{n!\, \frac{(2n +1)!}{2^{2n +1} n!} \sqrt{\pi}} \left( \frac{x}{2} \right)^{2n +1/2} = \sqrt{\frac{2}{\pi x}}\sum_{n=0}^\infty \frac{(-1)^n}{(2n +1)!} x^{2n +1} }
+=\sqrt{\frac{2}{\pi x}}\sin x\]</span></p>
+<div class="fragment">
+<p>Show that</p>
+<p><span class="math display">\[J_{-1/2}(x)=\sqrt{\frac{2}{\pi x}}\cos x\]</span></p>
+</div>
+</section>
+<section class="slide level3">
+
+<div class="cell" data-execution_count="3">
+<div class="cell-output cell-output-display">
+<div id="fig-ch05-spherical-bessel_function" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch05_Series_Solutions_of_Linear_Differential_Equations_files/figure-revealjs/fig-ch05-spherical-bessel_function-output-1.png" width="985" height="530"></p>
+<p></p><figcaption>Figure&nbsp;3: Spherical Bessel Function</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<h4 id="legendre-polynomials">5.3.2 Legendre Polynomials</h4>
+<p>Since <span class="math inline">\(x=0\)</span> is an ordinary point of Legendre’s equation, <span class="math inline">\(~\)</span>we substitute the series <span class="math inline">\(y=\sum_{j=0}^\infty c_j x^j~\)</span> to get</p>
+<p><span class="math display">\[\begin{align*}
+{\scriptsize (1 -x^2)}&amp;{\scriptsize y'' -2xy' +n(n +1)y = }\\ &amp;{\tiny [n(n+1)c_0 +2c_2] +[(n -1)(n +2)c_1 +6c_3]x }\\
+     &amp;{\tiny +\sum_{j=2}^\infty [(j +2)(j +1) c_{j +2} +(n -j)(n +j +1)c_j] x^j = 0}\\
+&amp;\Downarrow \\
+{\tiny c_2} &amp; {\tiny = -\frac{n(n+1)}{2} c_0 }\\
+{\tiny c_3 }&amp; {\tiny = -\frac{(n -1)(n +2)}{6} c_1 }\\
+{\tiny c_{j +2} } &amp; {\tiny =-\frac{(n -j)(n +j +1)}{(j +2)(j +1)} c_j, \;\; j=2,3,4,\cdots }
+\end{align*}\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>The recurrence relation yields</p>
+<p><span class="math display">\[{\tiny
+\begin{align*}
+c_2&amp;= -\frac{n(n+1)}{2!} c_0\\
+c_4&amp;= -\frac{(n -2)(n +3)}{4\cdot3}c_2=\frac{(n -2)n(n+1)(n +3)}{4!} c_0\\
+c_6&amp;= -\frac{(n -4)(n +5)}{6\cdot5}c_4=-\frac{(n -4)(n -2)n(n+1)(n +3)(n +5)}{6!} c_0\\
+  &amp;\,\vdots
+\end{align*}}\]</span></p>
+<p><span class="math display">\[{\tiny
+\begin{align*}
+c_3&amp;= -\frac{(n -1)(n+2)}{3!} c_1\\
+c_5&amp;= -\frac{(n -3)(n +4)}{5\cdot4}c_3=\frac{(n -3)(n -1)(n+2)(n +4)}{5!} c_1\\
+c_7&amp;= -\frac{(n -5)(n +6)}{7\cdot6}c_5=-\frac{(n -5)(n -3)(n -1)(n+2)(n +4)(n +6)}{7!} c_1\\
+  &amp;\,\vdots
+\end{align*}}\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>Thus for at least <span class="math inline">\(|x|&lt;1\)</span>, <span class="math inline">\(~\)</span>we obtain two linearly independent power series solutions:</p>
+<p><span class="math display">\[{\tiny
+   y_1(x) = c_0 \left[1 -\frac{n(n+1)}{2!} x^2 +\frac{(n -2)n(n+1)(n +3)}{4!} x^4
+          -\frac{(n -4)(n -2)n(n+1)(n +3)(n +5)}{6!} x^6 \cdots \right]
+}\]</span></p>
+<p><span class="math display">\[{\tiny
+y_2(x) = c_1 \left[x -\frac{(n -1)(n+2)}{3!} x^3 +\frac{(n -3)(n -1)(n+2)(n +4)}{5!} x^5
+-\frac{(n -5)(n -3)(n -1)(n+2)(n +4)(n +6)}{7!} x^7 \cdots \right]}\]</span></p>
+<ul>
+<li><p>If <span class="math inline">\(n\)</span> is an even integer, <span class="math inline">\(~\)</span>the series <span class="math inline">\(y_1(x)\)</span> reduces to a polynomial of degree <span class="math inline">\(n\)</span> with only even powers of <span class="math inline">\(x\)</span> and the series <span class="math inline">\(y_2(x)\)</span> diverges</p></li>
+<li><p>If <span class="math inline">\(n\)</span> is an odd integer, <span class="math inline">\(~\)</span>the series <span class="math inline">\(y_2(x)\)</span> reduces to a polynomial of degree <span class="math inline">\(n\)</span> with only odd powers of <span class="math inline">\(x\)</span> and the series <span class="math inline">\(y_1(x)\)</span> diverges</p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li>The general solution for an integer <span class="math inline">\(n\)</span> is then given by the <strong>polynomials</strong></li>
+</ul>
+<p><br></p>
+<p>For example, if <span class="math inline">\(n=4\)</span>, then</p>
+<p><span class="math display">\[\scriptsize
+y_1(x) = c_0 \left[1 -\frac{4\cdot5}{2!} x^2 +\frac{2\cdot4\cdot5\cdot7}{4!} x^4 \right]
+= c_0 \left[1 -10x^2 +\frac{35}{3} x^4 \right]
+\]</span></p>
+</section>
+<section class="slide level3">
+
+<p>It is traditional to choose specific values for <span class="math inline">\(c_0\)</span> or <span class="math inline">\(c_1\)</span>, depending on whether <span class="math inline">\(n\)</span> is an even or odd positive integer, respectively</p>
+<ul>
+<li><p>For <span class="math inline">\(n=0\)</span>, <span class="math inline">\(~c_0=1\)</span>, and for <span class="math inline">\(n=2,4,6,\cdots\)</span>,</p>
+<p><span class="math display">\[c_0=(-1)^{n/2} \frac{1\cdot 3\cdots (n -1)}{2 \cdot 4 \cdots n}\]</span></p></li>
+<li><p>For <span class="math inline">\(n=1\)</span>, <span class="math inline">\(~c_1=1\)</span>, and for <span class="math inline">\(n=3,5,7,\cdots\)</span>,</p>
+<p><span class="math display">\[c_1=(-1)^{(n -1)/2} \frac{1\cdot 3\cdots n}{2 \cdot 4 \cdots (n -1)}\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p>For example, when <span class="math inline">\(n=4\)</span>, <span class="math inline">\(~\)</span>we have</p>
+<p><span class="math display">\[\scriptsize y_1(x) = (-1)^{4/2} \frac{1\cdot3}{2\cdot4} \left[1 -10x^2 +\frac{35}{3} x^4 \right]
+  =\frac{1}{8} (35x^4 -30x^2 +3)\]</span></p>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><strong>Legendre Polynomials</strong></li>
+</ul>
+<p>There specific <span class="math inline">\(n\)</span>-th degree polynomials are called <strong>Legendre polynomials</strong> and denoted by <span class="math inline">\(P_n(x)\)</span></p>
+<p><span class="math display">\[\scriptsize
+  \begin{align*}
+    P_0(x) &amp;= 1\\
+    P_1(x) &amp;= x\\
+    P_2(x) &amp;= \frac{1}{2}(3x^2 -1)\\
+    P_3(x) &amp;= \frac{1}{2}(5x^3-3x)\\
+    P_4(x) &amp;= \frac{1}{8}(35x^4 -30x^2 +3)\\
+    P_5(x) &amp;= \frac{1}{8}(63x^5 -70x^3 +15x)
+  \end{align*}\]</span></p>
+</section>
+<section class="slide level3">
+
+<div class="cell" data-execution_count="4">
+<div class="cell-output cell-output-display">
+<div id="fig-ch05-legendre-polynomials" class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="ch05_Series_Solutions_of_Linear_Differential_Equations_files/figure-revealjs/fig-ch05-legendre-polynomials-output-1.png" width="625" height="506"></p>
+<p></p><figcaption>Figure&nbsp;4: Legendre polynomials</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Properties</strong></p>
+<ul>
+<li><span class="math inline">\(P_n(-x)=(-1)^n P_n(x)\)</span></li>
+<li><span class="math inline">\(P_n(1)=1\)</span></li>
+<li><span class="math inline">\(P_n(-1)=(-1)^n\)</span></li>
+<li><span class="math inline">\(P_n(0)=0\)</span>, <span class="math inline">\(~n\)</span> odd</li>
+<li><span class="math inline">\(P_n'(0)=0\)</span>, <span class="math inline">\(~n\)</span> even</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Rodrigues’ Formula</strong></p>
+<p>The Legendre polynomials can also be represented using <strong>Rodrigues’ Formula</strong>,</p>
+<p><span class="math display">\[P_n(x)=\frac{1}{2^n n!} \frac{d^n}{dx^n} \left(x^2 -1\right)^n,\;(\text{RF})\]</span></p>
+<p>This can be demonstrated through the following observations</p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><ul>
+<li>The right hand side of (RF) is a <span class="math inline">\(n\)</span>-th order polynomial</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><ul>
+<li><p>Treating <span class="math inline">\(\left(x^2 -1\right)^n = (x -1)^n (x + 1)^n\)</span> as a product and using Leibnitz’ rule to differentiate <span class="math inline">\(n\)</span> times, <span class="math inline">\(~\)</span>we have</p>
+<p><span class="math display">\[\frac{d^n}{dx^n} (x -1)^n (x +1)^n = n!(x+1)^n + {\scriptsize\text{terms with } (x -1) \text{ as a factor}}\]</span></p>
+<p>so that <span class="math inline">\(\displaystyle ~P_n(1) = \frac{n! 2^n}{2^n n!} =1\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><ul>
+<li><p>If <span class="math inline">\(~h(x) = \left(1 -x^2\right)^n\)</span>, <span class="math inline">\(~\)</span>then <span class="math inline">\(h'(x) = -2nx(1 -x^2)^{n-1}\)</span>, <span class="math inline">\(~\)</span>so that</p>
+<p><span class="math display">\[\left(1 -x^2\right)h' + 2nx\,h = 0\]</span></p></li>
+</ul>
+<p>Now differentiate <span class="math inline">\(n +1\)</span> times, using Leibnitz, to get</p>
+<p><span class="math display">\[{\scriptsize
+\begin{align*}
+    \left(1 -x^2\right)h^{n +2} &amp;-2(n +1)x h^{n +1} -2\frac{(n + 1)n}{2} h^n + 2nxh^{n +1} + 2n(n + 1)h^n = 0 \\
+    &amp;\Downarrow\\
+    \left(1 -x^2\right)h^{n +2} &amp;-2x h^{n +1} +n(n +1) h^n = 0
+\end{align*}}
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><ul>
+<li><p>As the equation is linear and <span class="math inline">\(P_n(x) \propto h^n(x)\)</span>, <span class="math inline">\(~P_n(x)\)</span> satisfies the Legendre equation of order <span class="math inline">\(n\)</span></p>
+<p><span class="math display">\[\left(1 -x^2\right) P_n''(x) -2x P_n'(x) +n(n +1) P_n(x) = 0\]</span></p></li>
+</ul></li>
+</ul>
+<div class="fragment">
+<ul>
+<li><p><strong>Integral Relations</strong></p>
+<ul>
+<li><p><span class="math display">\[\int_{-1}^1 P_k(x) P_l(x) \,dx = \delta_{k,l} \frac{2}{2l +1},\;\;k \leq l\]</span></p></li>
+<li><p><span class="math display">\[\int_{-1}^1 x P_s(x) P_r(x) \,dx = \delta_{r,s +1} \frac{2r}{(2r -1)(2r +1)}, \; r \geq s \]</span></p></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p><strong>Recurrence Relation</strong></p>
+<p>The Legendre polynomials satisfy the following recurrence relation</p>
+<p><span class="math display">\[(n + 1) P_{n +1}(x) = (2n + 1) x P_n(x) -n P_{n -1}(x)\]</span></p>
+<p>Consider the polynomial <span class="math inline">\(x P_n(x)\)</span>. It has degree <span class="math inline">\(n +1\)</span> and is thus in the linear span of <span class="math inline">\(P_0, \cdots, P_{n +1}\)</span>. We can hence write <span class="math inline">\(x P_n(x)\)</span> as a linear combination of the first <span class="math inline">\(~n +2\)</span> Legendre polynomials:</p>
+<p><span class="math display">\[
+xP_n(x) = c_0 P_0(x) +c_1 P_1(x) +\cdots +c_{n +1}P_{n +1}(x)
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><ul>
+<li><p>Thus</p>
+<p><span class="math display">\[ \scriptsize
+\begin{align*}
+    \int_{-1}^1 x P_n(x) P_k(x)\,dx &amp;= c_k \int_{-1}^1 P_k^2(x)\, dx \\
+    \rightarrow c_k &amp;=\frac{2k +1}{2} \int_{-1}^1 x P_n(x) P_k(x)\,dx
+\end{align*}
+\]</span></p></li>
+</ul>
+<p>These integrals vanish unless <span class="math inline">\(k = n \pm 1\)</span> and for this case, we can use</p>
+<p><span class="math display">\[ \scriptsize
+   c_{n -1}=\frac{2n -1}{2} \int_{-1}^1 x P_n(x) P_{n -1}(x)\,dx=\frac{n}{2n +1}
+\]</span></p>
+<p><span class="math display">\[ \scriptsize
+   c_{n +1}=\frac{2n +3}{2} \int_{-1}^1 x P_n(x) P_{n +1}(x)\,dx=\frac{n +1}{2n +1}
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><ul>
+<li><p>Hence</p>
+<p><span class="math display">\[
+  \begin{align*}
+     xP_n(x) &amp;= c_{n -1} P_{n -1}(x) +c_{n +1}P_{n +1}(x)\\
+             &amp;= \frac{n}{2n +1}P_{n -1}(x)+\frac{n +1}{2n +1}P_{n +1}(x)
+   \end{align*}
+\]</span></p>
+<p>This is what we wanted to prove</p></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<p><strong>Example:</strong> <span class="math inline">\(~\)</span> Find the general solution of the given differential equation on <span class="math inline">\((0,\infty)\)</span></p>
+<p><br></p>
+<div class="fragment">
+<div>
+<ul>
+<li class="fragment"><p><span class="math inline">\(x^2y''+xy'+(x^2-\frac{1}{9})y=0\)</span></p>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(xy''+y'+xy=0\)</span></p>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(x^2y'' +xy'+(9x^2-4)y=0\)</span></p>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(x^2y''+xy'-(16x^2+\frac{4}{9})y=0\)</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><p>Find the general solution of the given differential equation on <span class="math inline">\((0,\infty)\)</span></p>
+<ul>
+<li class="fragment"><p><span class="math inline">\(x^2y''+2xy'+\alpha^2x^2y=0; \;y=x^{-1/2}u(x)\)</span></p></li>
+<li class="fragment"><p><span class="math inline">\(xy''+2y'+4y=0\)</span></p></li>
+</ul>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p>Verify that <span class="math inline">\(I_\nu(x)=i^{-\nu}J_\nu(ix)~\)</span> is a real function</p>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p>Express the general solution of the given differential equation in terms of the modified Bessel functions</p>
+<p><span class="math display">\[xy''+y'-7x^3y=0\]</span></p>
+<p><span class="math inline">\(~\)</span></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><p>First express the general solution of the given differential equation in terms of Bessel functions and then express the general solution in terms of elementary functions</p>
+<p><span class="math display">\[x^2y''+4xy'+(x^2+2)y=0\]</span></p>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p>Derive the following result</p>
+<p><span class="math display">\[\int_0^x rJ_0(r)\,dr=xJ_1(x)\]</span></p>
+<p><span class="math display">\[J_0'(x)=J_{-1}(x)=-J_1(x)\]</span></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>Use the solution of the aging spring equation <span class="math inline">\(mx''+ke^{-at}x=0\)</span> to discuss the behavior of <span class="math inline">\(x(t)\)</span> as <span class="math inline">\(t \to\infty\)</span> in the three cases</p>
+<ul>
+<li><p><span class="math inline">\(c_1\neq 0, \;c_2=0\)</span></p></li>
+<li><p><span class="math inline">\(c_1=0, \;c_2\neq 0\)</span></p></li>
+<li><p><span class="math inline">\(c_1\neq 0, \;c_2 \neq 0\)</span></p></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><p>Use the recurrence relation and <span class="math inline">\(P_0(x)=1\)</span>, <span class="math inline">\(P_1(x)=x\)</span>, to generate the next six Legendre polynomials</p>
+<p><span class="math inline">\(~\)</span></p></li>
+<li class="fragment"><p>Show that the differential equation</p>
+<p><span class="math display">\[\sin\theta \frac{d^2y}{d\theta^2}+\cos\theta \frac{dy}{d\theta}+n(n+1)\,\sin\theta\,y=0\]</span></p>
+<p>can be transformed into Legendre’s equation by means of the substitution <span class="math inline">\(x=\cos\theta\)</span></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>Find the first three positive values of <span class="math inline">\(~\lambda~\)</span> for which the problem</p>
+<p><span class="math display">\[(1-x^2)y''-2xy'+\lambda y=0\]</span></p>
+<p><span class="math display">\[y(0)=0, \;y(x),\;y'(x)\;\text{ bounded on } [-1, 1]\]</span></p>
+<p>has nontrivial solutions</p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<ul>
+<li><p>The differential equation</p>
+<p><span class="math display">\[(1-x^2)y''-2xy'+\left[ n(n+1) -\frac{m^2}{1-x^2} \right]y=0\]</span></p>
+<p>is known as the associated Legendre equation. When <span class="math inline">\(~m=0\)</span>, this equation reduces to Legendre’s equation. <span class="math inline">\(~\)</span>A solution of the associated equation is</p>
+<p><span class="math display">\[P_n^m(x)=(1-x^2)^{m/2} \frac{d^m}{dx^m} P_n(x)\]</span></p>
+<p>where <span class="math inline">\(P_n(x), \;n=0, 1,2, \cdots\)</span> are the Legendre polynomials</p></li>
+</ul>
+</section>
+<section class="slide level3">
+
+<div>
+<ul>
+<li class="fragment"><p>The solutions <span class="math inline">\(P_n^m(x)\)</span> for <span class="math inline">\(m=0,1,2,\cdots,\)</span> are called associated Legendre functions</p>
+<ul>
+<li class="fragment"><p>Find the associated Legendre functions <span class="math inline">\(P_0^0(x)\)</span>, <span class="math inline">\(P_1^0(x)\)</span>, <span class="math inline">\(P_1^1(x)\)</span>, <span class="math inline">\(P_2^1(x)\)</span>, <span class="math inline">\(P_2^2(x)\)</span>, <span class="math inline">\(P_3^1(x)\)</span>, <span class="math inline">\(P_3^2(x)\)</span>, and <span class="math inline">\(P_3^3(x)\)</span></p></li>
+<li class="fragment"><p>What can you say about <span class="math inline">\(P_n^m(x)\)</span> when <span class="math inline">\(m\)</span> is an even non-negative integer?</p></li>
+<li class="fragment"><p>What can you say about <span class="math inline">\(P_n^m(x)\)</span> when <span class="math inline">\(m\)</span> is a nonnegative integer and <span class="math inline">\(m&gt;n\)</span>?</p></li>
+<li class="fragment"><p>Verify that <span class="math inline">\(y=P_1^1(x)\)</span> satisfies the associated Legendre equation when <span class="math inline">\(n=1\)</span> and <span class="math inline">\(m=1\)</span></p></li>
+</ul></li>
+</ul>
+</div>
+
+
+<img src="images/seoultech_logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
+
+</div>
+</section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="site_libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'smaller': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const clipboard = new window.ClipboardJS('.code-copy-button', {
+        target: function(trigger) {
+          return trigger.previousElementSibling;
+        }
+      });
+      clipboard.on('success', function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      });
+      function tippyHover(el, contentFn) {
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto-reveal',
+          placement: 'bottom-start'
+        };
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          return note.innerHTML;
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
